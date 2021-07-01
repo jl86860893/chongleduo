@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import { View, Text } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import { AtButton } from 'taro-ui'
 
 import "taro-ui/dist/style/components/button.scss" // 按需引入
@@ -17,11 +18,16 @@ export default class Wode extends Component {
 
   componentDidHide () { }
 
+  handleClick = () => {
+    Taro.navigateTo({
+      url: '/pages/wode/countinMenu/index'
+    })
+  }
+
   render () {
     return (
       <View className='wode'>
-        <Text>奥术大师大所大所</Text>
-        <AtButton type='primary'>hahahah</AtButton>
+        <View className='countin' onClick={this.handleClick}>录入</View>
       </View>
     )
   }
